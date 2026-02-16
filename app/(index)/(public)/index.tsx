@@ -3,6 +3,8 @@ import Animated, { FadeInDown } from "react-native-reanimated";
 import { Fonts } from "@/constants/theme";
 import AppleAuthButton from "@/components/auth/AppleAuthButton";
 import GoogleAuthBytton from "@/components/auth/GoogleAuthBytton";
+import InfiniteScroll from "@/components/InfiniteScroll";
+import { LinearGradient } from "expo-linear-gradient";
 
 export default function Index() {
   return (
@@ -10,7 +12,26 @@ export default function Index() {
       style={styles.container}
     >
       <View style={styles.infiniteScrollContentContainer}>
-
+        <View style={{ marginLeft: 80 }}>
+          <InfiniteScroll scrollDirection="down" iconSet="set1" />
+        </View>
+        <View>
+          <InfiniteScroll scrollDirection="up" iconSet="set2" />
+        </View>
+        <View>
+          <InfiniteScroll scrollDirection="down" iconSet="set3" />
+        </View>
+        <LinearGradient
+          colors={["rgba(255,255,255,0)", "rgba(255,255,255,1)"]}
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            zIndex: 1
+          }}
+        />
       </View>
 
       <View style={styles.contentContainer}>
@@ -62,6 +83,12 @@ const styles = StyleSheet.create({
   },
   infiniteScrollContentContainer: {
     flex: 0.8,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 4,
+    position: 'relative',
+    overflow: 'hidden'
   },
   contentContainer: {
     flex: 1,

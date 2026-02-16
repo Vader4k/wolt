@@ -2,9 +2,10 @@ import { View, StyleSheet, Image, Text, TouchableOpacity } from "react-native";
 import Animated, { FadeInDown } from "react-native-reanimated";
 import { Fonts } from "@/constants/theme";
 import AppleAuthButton from "@/components/auth/AppleAuthButton";
-import GoogleAuthBytton from "@/components/auth/GoogleAuthBytton";
 import InfiniteScroll from "@/components/InfiniteScroll";
 import { LinearGradient } from "expo-linear-gradient";
+import { Link } from "expo-router";
+import GoogleAuthButton from "@/components/auth/GoogleAuthButton";
 
 export default function Index() {
   return (
@@ -52,15 +53,15 @@ export default function Index() {
 
           <Animated.View entering={FadeInDown.delay(200)}>
             {/* Google button */}
-            <GoogleAuthBytton />
+            <GoogleAuthButton />
           </Animated.View>
 
-
           <Animated.View entering={FadeInDown.delay(300)}>
-            {/* Google button */}
-            <TouchableOpacity style={styles.otherButtonContainer}>
-              <Text style={styles.otherButton}>Other options</Text>
-            </TouchableOpacity>
+            <Link href="/(index)/(public)/other-options" asChild>
+              <TouchableOpacity style={styles.otherButtonContainer}>
+                <Text style={styles.otherButton}>Other options</Text>
+              </TouchableOpacity>
+            </Link>
           </Animated.View>
         </View>
 

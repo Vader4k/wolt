@@ -1,7 +1,7 @@
 import { Text, StyleSheet, TouchableOpacity } from 'react-native'
 import { Ionicons } from '@expo/vector-icons';
 
-const GoogleAuthBytton = () => {
+const GoogleAuthButton = () => {
     return (
         <TouchableOpacity style={styles.googleButton}>
             <Ionicons name="logo-google" size={18} color="white" />
@@ -27,5 +27,5 @@ const styles = StyleSheet.create({
     }
 })
 
-export default GoogleAuthBytton
+export default GoogleAuthButton
 

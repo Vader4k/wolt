@@ -1,4 +1,6 @@
 import { create } from "zustand";
+import { createJSONStorage, persist } from "zustand/middleware";
+import zustandStorage from "@/utils/zustandStorage";
 
 interface UserStore {
     isGuest: boolean;
@@ -7,12 +9,15 @@ interface UserStore {
     setUser: (user: any) => void;
 }
 
-const useUserStore = create<UserStore>()((set) => ({
+const useUserStore = create<UserStore>()(persist((set) => ({
     isGuest: false,
     user: null,
     setIsGuest: (isGuest: boolean) => set({ isGuest }),
     setUser: (user: any) => set({ user })
 
+}), {
+    name: "user",
+    storage: createJSONStorage(() => zustandStorage)
 }))
 
 export default useUserStore

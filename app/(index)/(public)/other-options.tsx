@@ -15,7 +15,7 @@ const OtherOptions = () => {
 
     const continueAsGuest = () => {
         setIsGuest(true)
-        router.push('/(index)/(auth)/index')
+        router.push('/(index)/(auth)')
     }
 
     return (

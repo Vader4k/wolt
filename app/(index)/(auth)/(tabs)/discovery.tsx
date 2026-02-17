@@ -1,18 +1,17 @@
 import { StyleSheet, Text, View, Button } from 'react-native'
 import useUserStore from '@/hooks/use-userstore'
-import { SafeAreaView } from 'react-native-safe-area-context'
 
-const index = () => {
+const Discovery = () => {
     const { setIsGuest } = useUserStore()
 
   return (
-    <SafeAreaView>
+    <View>
       <Text>My inside page</Text>
       <Button title="Go login" onPress={() => setIsGuest(false)} />
-    </SafeAreaView>
+    </View>
   )
 }
 
-export default index
+export default Discovery
 
 const styles = StyleSheet.create({})

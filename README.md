@@ -1,50 +1,83 @@
-# Welcome to your Expo app 👋
+# Wolt Clone - React Native Personal Project
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Welcome to my **Wolt Clone**! This is a personal project built to master **React Native** and the **Expo** ecosystem. The goal of this project is to replicate the core experience of the Wolt app, focusing on high-performance animations, seamless routing, and a premium UI/UX.
 
-## Get started
+## 🚀 Overview
 
-1. Install dependencies
+This app is a full-featured delivery platform clone including restaurant discovery, category filtering, and location management. It utilizes modern mobile development patterns to ensure a smooth, "native" feel across platforms.
+
+## 🛠 Tech Stack
+
+- **Framework**: [Expo](https://expo.dev/) (SDK 54)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Routing**: [Expo Router](https://docs.expo.dev/router/introduction/) (File-based navigation)
+- **Animations**: [React Native Reanimated](https://docs.swmansion.com/react-native-reanimated/) (Interpolated headers, smooth transitions)
+- **State Management**: [Zustand](https://github.com/pmndrs/zustand)
+- **Data Fetching**: [TanStack Query (React Query)](https://tanstack.com/query/latest)
+- **Storage**: [MMKV](https://github.com/mrousavy/react-native-mmkv) (High-speed key-value storage)
+- **Native Modules**:
+  - `expo-location` for real-time positioning
+  - `expo-maps` for visual delivery tracking
+  - `expo-haptics` for tactile feedback
+- **Typography**: [Nunito](https://fonts.google.com/specimen/Nunito) via Google Fonts
+
+## ✨ Key Features
+
+- **Animated Header**: A custom-built header that morphs and cross-fades content based on scroll position using Reanimated.
+- **Dynamic Restaurant Lists**: Refactored for optimal performance within scrollable containers.
+- **Interactive Modals**:
+  - **Location Manager**: Set and manage delivery addresses with native sheet detents.
+  - **Filter Suite**: Refine results by cuisine, price, and Wolt+ status.
+- **Form Sheets**: Leverages native iOS `formSheet` presentations for a premium feel.
+- **Safe Area Integration**: Precise layout handling across various screen types (notches, islands, etc.).
+
+## 📂 Project Structure
+
+- `app/`: Expo Router file-based pages and layouts.
+  - `(index)/(auth)/(tabs)`: Main application structure.
+  - `(modals)`: Native sheet presentations.
+- `components/`: Reusable primitive and composite UI components (Header, RestaurantList, CategoryList).
+- `constants/`: Theme definitions, colors, and typography settings.
+- `data/`: Mock data and static assets for prototyping.
+- `hooks/`: Custom React hooks for data fetching and logic.
+- `services/`: API and third-party service integrations.
+
+## 🚦 Getting Started
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/)
+- [Expo Go](https://expo.dev/go) app (for testing on hardware) or an Emulator/Simulator.
+
+### Installation
+
+1. **Clone the repository**
+
+   ```bash
+   git clone <your-repo-url>
+   cd wolt
+   ```
+
+2. **Install dependencies**
 
    ```bash
    npm install
    ```
 
-2. Start the app
-
+3. **Start the development server**
    ```bash
    npx expo start
    ```
 
-In the output, you'll find options to open the app in a
+## 📖 What I've Learned
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+Building this project allowed me to dive deep into:
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+- Efficiently handling **Nested VirtualizedLists** and scrollable layouts.
+- Implementing **Shared Value** animations with interpolate and extrapolate.
+- Structuring complex **React Native projects** using local-first architectures.
+- Managing **native iOS detents** and presentation styles within expo-router.
 
-## Get a fresh project
+---
 
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+_This is a portfolio project. Check out the code to see how I handle state, animations, and navigation in a modern React Native environment._

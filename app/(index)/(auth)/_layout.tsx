@@ -8,6 +8,24 @@ const AuthLayout = () => {
     <Stack>
       <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
       <Stack.Screen
+        name="(modals)/Map"
+        options={{
+          presentation: 'formSheet',
+          sheetAllowedDetents: [0.8],
+          headerShadowVisible: false,
+          title: 'Restaurants Nearby',
+          headerTitleStyle: {
+            fontFamily: 'Nunito_700Bold',
+          },
+          sheetCornerRadius: 16,
+          sheetGrabberVisible: true,
+          headerRight: () => (
+            <TouchableOpacity style={{ padding: 4 }} onPress={() => router.dismiss()}>
+              <Ionicons name='close-sharp' size={28} />
+            </TouchableOpacity>
+          )
+        }} />
+      <Stack.Screen
         name="(modals)/Location"
         options={{
           presentation: 'formSheet',

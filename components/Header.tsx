@@ -94,9 +94,11 @@ const Header = ({ title, scrollOffset }: HeaderProps) => {
               <Ionicons name='filter' size={20} />
             </TouchableOpacity>
           </Link>
-          <TouchableOpacity style={styles.iconButton}>
-            <Ionicons name='map-outline' size={20} />
-          </TouchableOpacity>
+          <Link href={'/(index)/(auth)/(modals)/Map'} asChild>
+            <TouchableOpacity style={styles.iconButton}>
+              <Ionicons name='map-outline' size={20} />
+            </TouchableOpacity>
+          </Link>
         </View>
       </Animated.View>
 

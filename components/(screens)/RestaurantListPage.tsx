@@ -49,7 +49,9 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 30,
         fontFamily: Fonts.brandBlack,
-        marginBottom: 16,
+        marginBottom: 8,
+        fontWeight: '900',
+        color: '#000',
         paddingHorizontal: 16,
     },
     allRestaurantsTitle: {

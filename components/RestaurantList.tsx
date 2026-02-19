@@ -1,8 +1,8 @@
-import { ActivityIndicator, StyleSheet, Text, TouchableOpacity, View, Image } from 'react-native'
-import { FlatList } from 'react-native'
-import { useRestaurants } from '@/hooks/use-restaurants'
 import { Colors } from '@/constants/theme';
+import { Restaurant } from '@/data/restaurants';
+import { useRestaurants } from '@/hooks/use-restaurants';
 import { Ionicons } from '@expo/vector-icons';
+import { ActivityIndicator, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 const RestaurantList = () => {
 
@@ -15,33 +15,44 @@ const RestaurantList = () => {
     }
 
     if (error) {
-        return <Text>Error: {error.message}</Text>
+        return (
+            <View style={{ padding: 16, alignItems: 'center' }}>
+                <Text style={{ color: Colors.dark, fontSize: 16, fontWeight: 'bold', marginBottom: 8 }}>Failed to load restaurants</Text>
+                <Text style={{ color: '#666' }}>{error instanceof Error ? error.message : 'Please try again later'}</Text>
+            </View>
+        )
+    }
+
+    const renderRestaurants = ({ item }: { item: Restaurant }) => {
+        return (
+            <TouchableOpacity style={styles.card}>
+                <Image source={item.image ?? ''} style={styles.image} />
+                <View style={styles.infoContainer}>
+                    <Text style={styles.name}>{item.name}</Text>
+                    <Text style={styles.description} numberOfLines={2}>{item.description}</Text>
+                </View>
+
+                <View style={styles.metadata}>
+                    <Ionicons name='bicycle-outline' size={16} color={'#666'} />
+                    <Text style={styles.metadataText}>{item.deliveryFee.toFixed(2)}</Text>
+                    <Text style={styles.dot}>•</Text>
+                    <Text style={styles.metadataText}>$$$$</Text>
+                    <Text style={styles.dot}>•</Text>
+                    <Ionicons name='happy-outline' size={16} color={'#666'} />
+                    <Text style={styles.metadataText}>{item.rating}</Text>
+                </View>
+            </TouchableOpacity>
+        )
     }
 
     return (
-        <>
+        <View>
             {restaurants?.map((item) => (
                 <View key={item.id}>
-                    <TouchableOpacity style={styles.card}>
-                        <Image source={item.image ?? ''} style={styles.image} />
-                        <View style={styles.infoContainer}>
-                            <Text style={styles.name}>{item.name}</Text>
-                            <Text style={styles.description} numberOfLines={2}>{item.description}</Text>
-                        </View>
-
-                        <View style={styles.metadata}>
-                             <Ionicons name='bicycle-outline' size={16} color={'#666'}/>
-                             <Text style={styles.metadataText}>{item.deliveryFee.toFixed(2)}</Text>
-                              <Text style={styles.dot}>•</Text>
-                              <Text style={styles.metadataText}>$$$$</Text>
-                              <Text style={styles.dot}>•</Text>
-                              <Ionicons name='happy-outline' size={16} color={'#666'}/>
-                              <Text style={styles.metadataText}>{item.rating}</Text>
-                        </View>
-                    </TouchableOpacity>
+                    {renderRestaurants({ item })}
                 </View>
             ))}
-        </>
+        </View>
 
     )
 }
@@ -61,12 +72,12 @@ const styles = StyleSheet.create({
             width: 0,
             height: 2,
         },
-        shadowOpacity: 1,
-        shadowRadius: 4,
+        shadowOpacity: 0.2,
+        shadowRadius: 2,
         elevation: 2,
     },
     image: {
-        width: '100%',  
+        width: '100%',
         height: 180,
     },
     infoContainer: {
